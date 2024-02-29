@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Builder</title>
+    <link rel="stylesheet" href="./CSS/resumeForm.css">
+</head>
+
+<style>
+    input[type="radio"] {
+        display: inline-block;
+    }
+
+    .container {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        gap: 0px 0px;
+        /* grid-auto-flow: row; */
+        grid-template-areas:
+            "resume_ProfilePic BasicDetails"
+            "resume_summary resume_Experience"
+            "resume_SkillsAndReferences resume_Education";
+    }
+
+    #resume_ProfilePic {
+        grid-area: resume_ProfilePic;
+    }
+
+    #resume_summary {
+        grid-area: resume_summary;
+    }
+
+    #resume_Experience {
+        grid-area: resume_Experience;
+    }
+
+    .BasicDetails {
+        grid-area: BasicDetails;
+        align-items: center;
+        text-align: center;
+    }
+
+    #resume_Education {
+        grid-area: resume_Education;
+    }
+
+    #resume_SkillsAndReferences {
+        grid-area: resume_SkillsAndReferences;
+    }
+
+    #resume_ProfilePic,
+    #resume_summary,
+    #resume_SkillsAndReferences {
+        background-color: rgb(61, 61, 61);
+        color: white;
+        padding: 2%;
+    }
+
+    #resume_Education,
+    #resume_Experience,
+    .BasicDetails {
+        background-color: rgb(254, 255, 200);
+        padding: 2%;
+    }
+</style>
+
+<body>
+    <div class="main_form"></div>
+    <h1 style="font-weight: normal;">Resume Builder</h1>
+    <div class="form">
+        <form id="resume_form" method="POST">
+            <hr>
+            <div class="details" id="personal_details">
+                <h3>Personal Details</h3>
+                <label for="input_name">Name:</label>
+                <input type="text" id="input_name" name="input_name" required><br>
+                <label for="input_dob">Date of Birth:</label>
+                <input type="date" id="input_dob" name="input_dob" required><br><br>
+                <label for="input_gender" style="display: inline-block;">Gender:</label>
+                <input type="radio" name="input_gender" id="gender_male" value="Male">
+                <label for="gender_male" style="display: inline-block;">Male</label>
+                <input type="radio" name="input_gender" id="gender_female" value="Female">
+                <label for="gender_female" style="display: inline-block;">Female</label><br><br>
+                <label for="input_image">Profile Image:</label>
+                <input type="file" name="profile_image" id="input_image" accept="image/*"
+                    onchange="previewImage(event)">
+                <div id="imagePreview"></div>
+            </div>
+            <div class="details" id="profile_summary">
+                <h3>Profile Summary</h3>
+                <label for="input_summary">Summary:</label>
+                <textarea name="input_summary" id="input_summary" cols="30" rows="10"></textarea>
+            </div>
+            <div class="details" id="contact_details">
+                <h3>Contact Details</h3>
+                <label for="input_mobno">Mobile number:</label>
+                <input type="tel" id="input_mobno" name="input_mobno" pattern="[6-9]{1}[0-9]{9}" required><br>
+                <label for="input_email">Email ID:</label>
+                <input type="email" id="input_email" name="input_email" required><br>
+                <label for="input_address">Address:</label>
+                <textarea name="input_address" id="input_address" cols="30" rows="10"></textarea>
+            </div>
+            <div class="details" id="educational_details">
+                <h3>Educational Details</h3>
+                <button onclick="addEducationDetail()" id="educational_details_button"> + Add Educational
+                    Details</button>
+            </div>
+            <div class="details" id="work_experience_details">
+                <h3>Work Experience</h3>
+                <button onclick="addWorkExperienceDetail()" id="work_experience_details_button"> + Add Work Experience
+                    Details</button>
+            </div>
+            <div class="details" id="skills_details">
+                <h3>Skills</h3>
+                <button onclick="addSkillDetail()"> + Add Skill</button>
+            </div>
+            <div class="details" id="references">
+                <h3>References</h3>
+                <button onclick="addReferenceDetail()"> + Add Reference</button>
+            </div>
+            <hr>
+            <button type="submit">Submit</button>
+            <button type="reset">Reset</button>
+        </form>
+    </div>
+
+    <div class="resume">
+        <div class="container" style="margin: 5%;">
+            <div id="resume_ProfilePic"></div>
+            <div id="resume_summary">
+            </div>
+            <div id="resume_Experience">
+            </div>
+            <div class="BasicDetails">
+                <h1 style="color: black;" id="resume_name"></h1>
+                <p style="display: inline-block;" id="resume_phone"></p>|
+                <p style="display: inline-block;" id="resume_email"></p>
+                <p id="resume_address"></p>
+            </div>
+            <div id="resume_SkillsAndReferences">
+            </div>
+            <div id="resume_Education">
+            </div>
+        </div>
+
+    </div>
+
+    <script src="./JS/resumeForm_educationalDetails.js"></script>
+    <script src="./JS/resumeForm_skillsDetail.js"></script>
+    <script src="./JS/resumeForm_workExperienceDetails.js"></script>
+    <script src="./JS/resumeForm_referencesDetails.js"></script>
+    <script>
+        function previewImage(event) {
+            var reader = new FileReader();
+            reader.onload = function () {
+                var output = document.getElementById('resume_ProfilePic');
+                output.innerHTML = '<img style="padding: 2%; margin: 2%;" src="' + reader.result + '">';
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        }
+
+        document.getElementById('resume_form').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            var formData = {};
+            var formElements = this.elements;
+
+            // console.log(formElements)
+            for (var i = 0; i < formElements.length; i++) {
+                var element = formElements[i];
+                if (element.type !== 'submit' && element.type !== 'reset') {
+                    formData[element.name] = element.value;
+                }
+            }
+
+            // console.log(formData)
+            document.getElementById('resume_name').innerHTML = formData.input_name;
+            if (formElements['skill']) {
+                if (formElements['skill'].length > 1) {
+                    console.log(true)
+                    var displaySkills = document.getElementById('resume_SkillsAndReferences');
+                    var skillsHTML = '<h2>Skills</h2><ul>';
+
+                    for (let i = 0; i < formElements['skill'].length; i++) {
+                        skillsHTML += `<li>${formElements['skill'][i].value} - ${formElements['proficiency'][i].value}</li>`;
+                    }
+
+                    skillsHTML += '</ul>';
+                    displaySkills.innerHTML = skillsHTML;
+                }
+                else {
+                    var displaySkills = document.getElementById('resume_SkillsAndReferences');
+                    var skillsHTML = '<h2>Skills</h2><ul>';
+                    skillsHTML += `<li>${formElements['skill'].value} - ${formElements['proficiency'].value}</li>`;
+                    skillsHTML += '</ul>';
+                    displaySkills.innerHTML = skillsHTML;
+                }
+            }
+
+            if (formElements['reference_name']) {
+                if (formElements['reference_name'].length > 1) {
+
+                    if (!skillsHTML) {
+                        skillsHTML = '';
+                    }
+
+                    skillsHTML += '<h2>References</h2><ul>';
+                    for (let j = 0; j < formElements['reference_name'].length; j++) {
+                        skillsHTML += `<li>${formElements['reference_name'][j].value} - ${formElements['reference_company'][j].value} - ${formElements['reference_contact'][j].value}</li>`;
+                    }
+                    skillsHTML += '</ul>';
+
+                    if (displaySkills) {
+                        displaySkills.innerHTML = skillsHTML;
+                    }
+                } else {
+                    if (!skillsHTML) {
+                        skillsHTML = '';
+                    }
+                    skillsHTML += '<h2>References</h2><ul>';
+                    skillsHTML += `<li>${formElements['reference_name'].value} - ${formElements['reference_company'].value} - ${formElements['reference_contact'].value}</li>`;
+                    skillsHTML += '</ul>';
+
+                    if (displaySkills) {
+                        displaySkills.innerHTML = skillsHTML;
+                    }
+                }
+            }
+
+
+            document.getElementById('resume_summary').innerHTML = `<h2>About Me</h2><p>${formData.input_summary}</p>`;
+
+            document.getElementById('resume_address').innerHTML = formData.input_address;
+
+            document.getElementById('resume_phone').innerHTML = formData.input_mobno;
+
+            document.getElementById('resume_email').innerHTML = formData.input_email;
+
+
+            if (formElements['degree']) {
+                var displayEducation = document.getElementById('resume_Education');
+                var educationHTML = '<h2>Education</h2>';
+
+                if (formElements['degree'].length > 1) {
+                    educationHTML += '<ul>';
+                    for (let i = 0; i < formElements['degree'].length; i++) {
+                        educationHTML += `<li><h4>${formElements['degree'][i].value}</h4>${formElements['institution'][i].value} - ${formElements['year'][i].value} - ${formElements['gpa'][i].value}</li>`;
+                    }
+                    educationHTML += '</ul>';
+                } else {
+                    educationHTML += `<div><h4>${formElements['degree'].value}</h4>${formElements['institution'].value} - ${formElements['year'].value} - ${formElements['gpa'].value}</div>`;
+                }
+
+                displayEducation.innerHTML = educationHTML;
+            }
+
+            if (formElements['job_title']) {
+                var displayExperience = document.getElementById('resume_Experience');
+                var experienceHTML = '<h2>Experience</h2>';
+
+                if (formElements['job_title'].length > 1) {
+                    experienceHTML += '<ul>';
+                    for (let i = 0; i < formElements['job_title'].length; i++) {
+                        experienceHTML += `<li><h4>${formElements['job_title'][i].value}</h4>${formElements['company'][i].value} - ${formElements['start_date'][i].value} - ${formElements['end_date'][i].value}<p>${formElements['description'][i].value}</p></li>`;
+                    }
+                    experienceHTML += '</ul>';
+                } else {
+                    experienceHTML += `<div><h4>${formElements['job_title'].value}</h4>${formElements['company'].value} - ${formElements['start_date'].value} - ${formElements['end_date'].value}<p>${formElements['description'].value}</p></div>`;
+                }
+
+                displayExperience.innerHTML = experienceHTML;
+            }
+
+        });
+    </script>
+</body>
+
+</html>

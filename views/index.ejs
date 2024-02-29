@@ -1,0 +1,14 @@
+<title>
+    <%= title %>
+</title>
+<h1>This is EJS Template</h1>
+<br />
+<% users.forEach(user => { %>
+<li style="text-transform: capitalize;">
+    <%= user.first_name %>
+    <%= user.last_name %>
+    [<%= user.email %>]
+</li>
+<% }); %>
+
+<p style="text-transform: capitalize;">Total number of stdents = <%= users.length %></p>
