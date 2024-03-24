@@ -49,6 +49,12 @@
       "cast": "Daniel Craig, Léa Seydoux",
       "poster": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/eqWaeh21e4ZgHjwpULZVHCGIq9X.jpg",
       "storyline": "James Bond comes out of retirement to face Safin, a new villain armed with dangerous technology, as he races against time to save the world."
+    },
+    {
+      "title": "Oppenheimer",
+      "cast": "Cillian Murphy, Emily Blunt",
+      "poster": "uploads\\Oppenhimer.jpg",
+      "storyline": "The story of J. Robert Oppenheimer's role in the development of the atomic bomb during World War II."
     }
   ]
 }

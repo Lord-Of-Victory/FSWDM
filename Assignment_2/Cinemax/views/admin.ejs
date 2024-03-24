@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - Cinemax</title>
+    <title>Cinemax</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="shortcut icon" href="/css/clapperboard.png" type="image/x-icon">
 </head>
 
 <body>
@@ -121,12 +122,12 @@
             .then(response => response.json())
             .then(data => {
                 console.log('Response from server:', data);
+                window.location.href = "/";
                 // Handle response from server
             })
             .catch(error => {
                 console.error('Error:', error);
                 // Handle error
             });
-        window.location.href = "/";
     });
 </script>

@@ -25,7 +25,12 @@
   ],
   "Wednesday": [],
   "Thursday": [],
-  "Friday": [],
+  "Friday": [
+    {
+      "title": "Oppenheimer",
+      "timing": "15:30"
+    }
+  ],
   "Saturday": [],
   "Sunday": []
 }
