@@ -1,0 +1,54 @@
+{
+  "currentMovies": [
+    {
+      "title": "The Matrix Resurrections",
+      "timing": "8:00 PM",
+      "cast": "Keanu Reeves, Carrie-Anne Moss",
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/mRVs2fS3cf30W8OsLX7FAIvi0QH.jpg"
+    },
+    {
+      "title": "Spider-Man: No Way Home",
+      "timing": "10:00 PM",
+      "cast": "Tom Holland, Zendaya",
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/5weKu49pzJCt06OPpjvT80efnQj.jpg"
+    }
+  ],
+  "upcomingMovies": [
+    {
+      "title": "Avatar 2",
+      "timing": "8:00 PM",
+      "cast": "Sam Worthington, Zoe Saldana",
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/t6HIqrRAclMCA60NsSmeqe9RmNV.jpg"
+    },
+    {
+      "title": "Jurassic World: Dominion",
+      "timing": "10:00 PM",
+      "cast": "Chris Pratt, Bryce Dallas Howard",
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/kAVRgw7GgK1CfYEJq8ME6EvRIgU.jpg"
+  },
+  {
+      "title": "Wonder Woman 1984",
+      "timing": "8:00 PM",
+      "cast": "Gal Gadot, Chris Pine",
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/8UlWHLMpgZm9bx6QYh0NFoq67TZ.jpg"
+  },
+  {
+      "title": "Dune",
+      "timing": "10:00 PM",
+      "cast": "Timothée Chalamet, Zendaya",
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/d5NXSklXo0qyIYkgV94XAgMIckC.jpg"
+  },
+  {
+      "title": "Black Widow",
+      "timing": "7:00 PM",
+      "cast": "Scarlett Johansson, Florence Pugh",
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/kwB7d51AIcyzPOBOHLCEZJkmPhQ.jpg"
+  },
+  {
+      "title": "No Time to Die",
+      "timing": "9:00 PM",
+      "cast": "Daniel Craig, Léa Seydoux",
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/eqWaeh21e4ZgHjwpULZVHCGIq9X.jpg"
+  }
+  ]
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule - Cinemax</title>
+    <link rel="stylesheet" href="css/style.css" type="text/css"> <!-- Link to the CSS file -->
+</head>
+<body>
+    <header>
+        <h1>Schedule - Cinemax</h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/admin">Admin</a>
+            <a href="/auth/logout">Logout</a> <!-- Assuming logout route exists -->
+        </nav>
+    </header>
+    <main class="container">
+        <h2>Weekly Schedule</h2>
+        <div class="card">
+            <div class="card-content">
+                <% Object.keys(schedule).forEach(day => { %>
+                    <h3><%= day %></h3>
+                    <ul>
+                        <% schedule[day].forEach(movie => { %>
+                            <li><%= movie.title %></li>
+                        <% }); %>
+                    </ul>
+                <% }); %>
+            </div>
+        </div>
+    </main>
+    <footer>
+        &copy; 2024 Cinemax
+    </footer>
+</body>
+</html>
