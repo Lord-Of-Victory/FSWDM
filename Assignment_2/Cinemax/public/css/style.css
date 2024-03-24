@@ -3,6 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 /* Body styles */
@@ -17,7 +18,6 @@ body {
 header {
     background: linear-gradient(to right, #ff7e5f, #fc720a);
     color: #fff;
-    padding: 20px;
     text-align: center;
 }
 
@@ -25,7 +25,6 @@ header {
 nav {
     display: flex;
     justify-content: center;
-    margin-top: 10px;
 }
 
 nav a {
@@ -50,9 +49,6 @@ nav a {
     position: relative;
 }
 
-/* .poster{
-    width: 50%;
-} */
 .card h2 {
     padding: 15px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
@@ -89,15 +85,16 @@ footer {
 }
 
 .card-img-container .overlay {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
     opacity: 0;
     transition: opacity 0.3s ease;
 }
@@ -107,7 +104,7 @@ footer {
 }
 
 .card-img-container:hover img {
-    filter: brightness(70%); /* Dim the image on hover */
+    filter: brightness(70%);
 }
 
 .movie-title {
@@ -121,5 +118,78 @@ footer {
 }
 
 .movie-info {
-    z-index: 2; /* Ensure the info button is above other elements */
+    z-index: 2;
+}
+
+.authForms {
+    max-width: 50%;
+}
+
+.customNavbar {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr;
+    gap: 0px 10px;
+    grid-auto-flow: row;
+    justify-items: start;
+    grid-template-areas:
+        "Logo NavItems";
+}
+
+.Logo {
+    grid-area: Logo;
+}
+
+.NavItems {
+    grid-area: NavItems;
+    justify-items: end;
+    justify-content: end;
+}
+
+#LogoText {
+
+    display: inline-block;
+    margin-left: 10px;
+    vertical-align: middle;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-transform: uppercase;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+.info-button {
+    /* New styles for the "Info" button */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+.movie-info {
+    /* New styles to display cast and storyline below each other */
+    color: white;
+    text-align: start;
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
+.card:hover .movie-info {
+    /* New styles to display cast and storyline when hovering over the card */
+    opacity: 1;
 }

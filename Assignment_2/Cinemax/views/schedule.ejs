@@ -1,37 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Schedule - Cinemax</title>
-    <link rel="stylesheet" href="css/style.css" type="text/css"> <!-- Link to the CSS file -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Link to the CSS file -->
+    <link rel="stylesheet" href="/css/style.css">
 </head>
+
 <body>
     <header>
-        <h1>Schedule - Cinemax</h1>
-        <nav>
-            <a href="/">Home</a>
-            <a href="/admin">Admin</a>
-            <a href="/auth/logout">Logout</a> <!-- Assuming logout route exists -->
-        </nav>
+        <%- include('navbar.ejs', { req: req }) %>
     </header>
     <main class="container">
         <h2>Weekly Schedule</h2>
         <div class="card">
             <div class="card-content">
-                <% Object.keys(schedule).forEach(day => { %>
-                    <h3><%= day %></h3>
-                    <ul>
-                        <% schedule[day].forEach(movie => { %>
-                            <li><%= movie.title %></li>
-                        <% }); %>
-                    </ul>
-                <% }); %>
+                <% Object.keys(schedule).forEach(day=> { %>
+                    <hr>
+                    <h3 style="text-align: center;">
+                        <%= day %>
+                    </h3>
+                    <hr>
+                    <% if (schedule[day].length> 0) { %>
+                        <ul>
+                            <% const sortedMovies=schedule[day].sort((a, b)=> {
+                                // Assuming timing is in the format 'HH:MM AM/PM'
+                                const timeA = a.timing.split(' ')[0];
+                                const timeB = b.timing.split(' ')[0];
+                                return new Date('1970/01/01 ' + timeA) - new Date('1970/01/01 ' + timeB);
+                                });
+                                sortedMovies.forEach(movie => { %>
+                                <li style="text-align: center;">
+                                    <%= movie.title %> - <%= movie.timing %>
+                                </li>
+                                <% }); %>
+                        </ul>
+                        <% } else { %>
+                            <p style="text-align: center;">No movies scheduled for <%= day %>.</p>
+                            <% } %>
+                                <% }); %>
+                    <hr>
             </div>
         </div>
     </main>
-    <footer>
-        &copy; 2024 Cinemax
-    </footer>
+
+    <%- include('footer.ejs') %>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+
 </html>

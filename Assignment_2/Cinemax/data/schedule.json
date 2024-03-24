@@ -1,0 +1,31 @@
+{
+  "Monday": [
+    {
+      "title": "The Matrix Resurrections",
+      "timing": "8:00 PM"
+    },
+    {
+      "title": "Spider-Man: No Way Home",
+      "timing": "10:00 PM"
+    }
+  ],
+  "Tuesday": [
+    {
+      "title": "Spider-Man: No Way Home",
+      "timing": "10:00 PM"
+    },
+    {
+      "title": "Avatar 2",
+      "timing": "8:00 PM"
+    },
+    {
+      "title": "Jurassic World: Dominion",
+      "timing": "10:00 PM"
+    }
+  ],
+  "Wednesday": [],
+  "Thursday": [],
+  "Friday": [],
+  "Saturday": [],
+  "Sunday": []
+}

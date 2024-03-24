@@ -16,10 +16,10 @@ app.use(session({
 // Routes
 const movieController = require('./controllers/movieController');
 const adminController = require('./controllers/adminController');
-const authController = require('./controllers/authController'); // Adding the auth controller
+const authController = require('./controllers/authController');
 app.use('/', movieController);
 app.use('/admin', adminController);
-app.use('/auth', authController); // Adding the auth route
+app.use('/auth', authController);
 
 // Start server
 const PORT = 3001;

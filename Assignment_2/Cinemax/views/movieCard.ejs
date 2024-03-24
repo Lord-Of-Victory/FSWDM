@@ -1,0 +1,47 @@
+<div class="col-md-3 mb-4">
+    <div class="card">
+        <div class="card-img-container">
+            <img src="<%= movie.poster %>" class="card-img-top poster" alt="<%= movie.title %>">
+            <div class="overlay">
+                <button class="btn btn-info infoButton" onclick="showMovieInfo('<%=movie.cast%>')">Info</button>
+                <div class="movie-info hidden">
+                    Cast: <%= movie.cast %>
+                    <hr>
+                    Storyline: <%= movie.storyline %>
+                </div>
+            </div>
+            <div class="movie-title">
+                <h5 class="card-title">
+                    <%= movie.title %>
+                </h5>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Wait for the DOM content to load
+    document.addEventListener("DOMContentLoaded", function () {
+        // Get all movie cards
+        var movieCards = document.querySelectorAll('.card');
+
+        // Add event listeners for each movie card
+        movieCards.forEach(function (card) {
+            var overlay = card.querySelector('.overlay');
+            var movieInfoElement = card.querySelector('.movie-info');
+            var infoButton = overlay.querySelector('.infoButton');
+
+            // Hide cast when mouse leaves the card
+            overlay.addEventListener('mouseleave', function () {
+                movieInfoElement.classList.add('hidden');
+                infoButton.classList.remove('hidden');
+            });
+
+            // Show cast when the info button is clicked
+            infoButton.addEventListener('click', function () {
+                movieInfoElement.classList.remove('hidden');
+                infoButton.classList.add('hidden');
+            });
+        });
+    });
+</script>

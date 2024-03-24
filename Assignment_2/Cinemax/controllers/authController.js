@@ -7,7 +7,7 @@ const usersData = JSON.parse(fs.readFileSync('./data/users.json', 'utf-8'));
 
 // Login page
 router.get('/login', (req, res) => {
-    res.render('login');
+    res.render('login',{ req: req });
 });
 
 // Authenticate user
@@ -26,7 +26,7 @@ router.post('/login', (req, res) => {
 
 // Login page
 router.get('/signup', (req, res) => {
-    res.render('registration');
+    res.render('registration',{ req: req });
 });
 
 // Authenticate user

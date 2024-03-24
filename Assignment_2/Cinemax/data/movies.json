@@ -2,53 +2,53 @@
   "currentMovies": [
     {
       "title": "The Matrix Resurrections",
-      "timing": "8:00 PM",
       "cast": "Keanu Reeves, Carrie-Anne Moss",
-      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/mRVs2fS3cf30W8OsLX7FAIvi0QH.jpg"
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/mRVs2fS3cf30W8OsLX7FAIvi0QH.jpg",
+      "storyline": "Neo returns to the Matrix, still unsure of what is real and what is not, as he seeks to uncover the truth about his existence."
     },
     {
       "title": "Spider-Man: No Way Home",
-      "timing": "10:00 PM",
       "cast": "Tom Holland, Zendaya",
-      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/5weKu49pzJCt06OPpjvT80efnQj.jpg"
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/5weKu49pzJCt06OPpjvT80efnQj.jpg",
+      "storyline": "Peter Parker's identity as Spider-Man is revealed, leading to a dangerous confrontation with villains from alternate realities, forcing him to seek help from Doctor Strange."
     }
   ],
   "upcomingMovies": [
     {
       "title": "Avatar 2",
-      "timing": "8:00 PM",
       "cast": "Sam Worthington, Zoe Saldana",
-      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/t6HIqrRAclMCA60NsSmeqe9RmNV.jpg"
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/t6HIqrRAclMCA60NsSmeqe9RmNV.jpg",
+      "storyline": "Jake Sully and Neytiri navigate Pandora's lush ecosystem, facing new threats while discovering more about the planet's indigenous population."
     },
     {
       "title": "Jurassic World: Dominion",
-      "timing": "10:00 PM",
       "cast": "Chris Pratt, Bryce Dallas Howard",
-      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/kAVRgw7GgK1CfYEJq8ME6EvRIgU.jpg"
-  },
-  {
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/kAVRgw7GgK1CfYEJq8ME6EvRIgU.jpg",
+      "storyline": "Dinosaurs roam freely on mainland USA, threatening human existence, as former Jurassic World inhabitants must find a way to coexist with these ancient creatures."
+    },
+    {
       "title": "Wonder Woman 1984",
-      "timing": "8:00 PM",
       "cast": "Gal Gadot, Chris Pine",
-      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/8UlWHLMpgZm9bx6QYh0NFoq67TZ.jpg"
-  },
-  {
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/8UlWHLMpgZm9bx6QYh0NFoq67TZ.jpg",
+      "storyline": "Diana Prince faces off against Maxwell Lord and the Cheetah, while dealing with the return of her long-lost love, Steve Trevor, in the vibrant 1980s."
+    },
+    {
       "title": "Dune",
-      "timing": "10:00 PM",
       "cast": "Timothée Chalamet, Zendaya",
-      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/d5NXSklXo0qyIYkgV94XAgMIckC.jpg"
-  },
-  {
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/d5NXSklXo0qyIYkgV94XAgMIckC.jpg",
+      "storyline": "Paul Atreides, a young nobleman, leads a rebellion to reclaim his homeland from the oppressive rule of House Harkonnen, while also unlocking his own latent powers."
+    },
+    {
       "title": "Black Widow",
-      "timing": "7:00 PM",
       "cast": "Scarlett Johansson, Florence Pugh",
-      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/kwB7d51AIcyzPOBOHLCEZJkmPhQ.jpg"
-  },
-  {
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/kwB7d51AIcyzPOBOHLCEZJkmPhQ.jpg",
+      "storyline": "Natasha Romanoff confronts her past as a spy and the broken relationships she left behind, while facing a deadly conspiracy linked to her former life."
+    },
+    {
       "title": "No Time to Die",
-      "timing": "9:00 PM",
       "cast": "Daniel Craig, Léa Seydoux",
-      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/eqWaeh21e4ZgHjwpULZVHCGIq9X.jpg"
-  }
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/eqWaeh21e4ZgHjwpULZVHCGIq9X.jpg",
+      "storyline": "James Bond comes out of retirement to face Safin, a new villain armed with dangerous technology, as he races against time to save the world."
+    }
   ]
 }

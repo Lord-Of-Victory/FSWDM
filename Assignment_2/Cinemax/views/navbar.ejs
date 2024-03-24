@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand navbar-light">
+    <a class="navbar-brand" href="/" style="display: flex; align-items: center;">
+        <script src="https://cdn.lordicon.com/lordicon.js"></script>
+        <lord-icon src="https://cdn.lordicon.com/tlvdupnp.json" trigger="hover" style="width: 75px; height: 75px;"></lord-icon>
+        <h2 id="LogoText">Cinemax</h2>
+    </a>
+    <div class="navbar-collapse collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <button class="btn btn-warning" style="margin-right: 2px;" onclick="window.location.href='/schedule'">Schedule</button>
+            </li>
+            <% if (req.session.authenticated) { %>
+                <li class="nav-item">
+                    <button class="btn btn-success" style="margin-right: 2px;" onclick="window.location.href='/admin'">Add Movie</button>
+                </li>
+                <li class="nav-item">
+                    <button class="btn btn-primary" style="margin-right: 2px;" onclick="window.location.href='/auth/logout'">Logout</button>
+                </li>
+            <% } else if(!req.session.authenticated) { %>
+                <li class="nav-item">
+                    <button class="btn btn-primary" style="margin-right: 2px;" onclick="window.location.href='/auth/login'">Login</button>
+                </li>
+                <li class="nav-item">
+                    <button class="btn btn-primary" style="margin-right: 2px;" onclick="window.location.href='/auth/signup'">Signup</button>
+                </li>
+            <% } %>
+        </ul>
+    </div>
+</nav>
