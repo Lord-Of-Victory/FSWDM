@@ -1,0 +1,25 @@
+<link rel="stylesheet" href="/css/styles.css">
+<nav class="customNavbar">
+    <div class="customnav-container">
+        <h1 class="customnavbar-brand">Pratishruti-2024 Photo Gallery</h1>
+        <ul class="customnavbar-nav">
+            <% if (req.session.authenticated) { %>
+                <li class="customnav-item">
+                    <form id="gallery" action="/" method="get">
+                        <button class="btn btn-gallery" type="submit">Gallery</button>
+                    </form>
+                </li>
+                <li class="customnav-item">
+                    <form id="upload-Images" action="/upload" method="get">
+                        <button class="btn btn-upload" type="submit">Upload Images</button>
+                    </form>
+                </li>
+                <li class="customnav-item">
+                    <form id="logout-form" action="/authentication/logout" method="get">
+                        <button class="btn btn-logout" type="submit">Logout</button>
+                    </form>
+                </li>
+            <% } %>
+        </ul>
+    </div>
+</nav>

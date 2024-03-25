@@ -7,7 +7,7 @@ const usersData = JSON.parse(fs.readFileSync('./data/users.json', 'utf-8'));
 
 // Login page
 router.get('/login', (req, res) => {
-    res.render('login',{ req: req });
+    res.render('login',{ req: req});
 });
 
 // Authenticate user
@@ -19,14 +19,14 @@ router.post('/login', (req, res) => {
         req.session.authenticated = true; // Set session flag for authentication
         res.redirect('/');
     } else {
-        res.redirect('/auth/login');
+        res.redirect('/authentication/login');
     }
 });
 
 
 // Login page
 router.get('/signup', (req, res) => {
-    res.render('registration',{ req: req });
+    res.render('register',{ req: req});
 });
 
 // Authenticate user
@@ -35,14 +35,14 @@ router.post('/signup', (req, res) => {
     // Check if username already exists
     const userExists = usersData.users.find(user => user.username === username);
     if (userExists) {
-        res.redirect('/auth/signup');
+        res.redirect('/authentication/signup');
     } else {
         // Add new user to usersData
         usersData.users.push({ fullName,username, password });
         // Write updated usersData to users.json file
         // console.log(JSON.stringify(usersData, null, 2))
         fs.writeFileSync('./data/users.json', JSON.stringify(usersData, null, 2));
-        res.redirect('/auth/login');
+        res.redirect('/authentication/login');
     }
 });
 

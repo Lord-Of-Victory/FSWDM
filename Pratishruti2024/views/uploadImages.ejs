@@ -1,0 +1,43 @@
+<!-- backend/views/index.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pratishruti-2024 Photo Gallery</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <%- include('navbar.ejs',{req:req}) %>
+    <div class="container">
+        <form id="upload-form" action="/upload" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <input type="file" id="uploadedImage" class="form-control" name="image">
+            </div>
+            <div id="image-preview"></div>
+            <div class="form-group">
+                <button class="btn btn-primary" type="submit">Upload</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+
+<script>
+    document.getElementById('uploadedImage').addEventListener('change', function () {
+        var file = this.files[0];
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            var imagePreview = document.getElementById('image-preview');
+            imagePreview.innerHTML = ''; // Clear previous preview
+
+            var img = new Image();
+            img.src = e.target.result;
+            img.style.maxWidth = '50%'; // Adjust max-width as needed
+            imagePreview.appendChild(img);
+        };
+
+        reader.readAsDataURL(file);
+    });
+</script>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pratishruti-2024 Photo Gallery</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+    <%- include('navbar.ejs',{req:req}) %>
+        <div class="container">
+            <div style="max-width: 100%;text-align: center;">
+                <br>
+                <hr>
+                <hr>
+                <h2>Gallery</h2>
+                <hr>
+                <hr>
+                <br>
+                <div class="grid-container">
+                    <% photos.forEach(photo=> { %>
+                        <div class="uploaded-image-container">
+                            <img src="uploads/<%= photo.filename %>" alt="<%= photo.filename %>" class="uploaded-image">
+                            <button class="remove-button" onclick="deletePhoto('<%= photo.filename %>')">Remove</button>
+                        </div>
+                        <% }); %>
+                </div>
+                <% if (photos.length!=0) { %>
+                    <hr>
+                    <form id="remove-form" action="/delete-all" method="post">
+                        <button class="btn btn-danger" type="submit">Remove All</button>
+                    </form>
+                    <% }else { %>
+                        <p>No images To Show</p>
+                        <% } %>
+                            <br>
+                            <hr>
+                            <hr>
+            </div>
+            <% if (photos.length!=0) { %>
+                <h2 style="text-align: center;">Carousel</h2>
+                <hr>
+                <hr>
+                <br>
+                <div style="max-width: 100%;display: flex; justify-content: center;">
+                    <div style="width: 50%;">
+
+                        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner">
+                                <% photos.forEach((photo, index)=> { %>
+                                    <div class="carousel-item <%= index === 0 ? 'active' : '' %>">
+                                        <img src="uploads/<%= photo.filename %>" alt="<%= photo.filename %>"
+                                            class="d-block w-100 uploaded-image">
+                                    </div>
+                                    <% }); %>
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselExampleControls" role="button"
+                                data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleControls" role="button"
+                                data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                        <% } %>
+                    </div>
+                </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+        <script>
+            function deletePhoto(filename) {
+                fetch(`/delete/${filename}`, {
+                    method: 'POST',
+                })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Failed to delete photo');
+                        }
+                        console.log('Photo deleted successfully');
+                        location.reload();
+                    })
+                    .catch(error => {
+                        console.error('Error deleting photo:', error.message);
+                    });
+            }
+        </script>
+</body>
+
+</html>
