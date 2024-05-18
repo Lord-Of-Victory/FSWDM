@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JavaScript Example</title>
+    <input id="name" type="text" onchange="getName()">
+    <script src="externaljs.js"></script>
+
+</head>
+
+<body>
+    <button
+        onclick="var name = document.getElementById('name').value;alert('Hello ' + name + ' from Inline JavaScript!')">Click
+        Me for Inline JavaScript</button>
+    <button onclick="sayHelloInternal()">Click Me for Internal JavaScript</button>
+    <button onclick="sayHelloExternal()">Click Me for External JavaScript</button>
+</body>
+
+<script>
+    var name;
+    function getName() {
+        name = document.getElementById("name").value;
+    }
+
+    function sayHelloInternal() {
+        alert('Hello ' + name + ' from Internal JavaScript!');
+    }
+</script>
+
+</html>

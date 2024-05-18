@@ -1,1 +1,30 @@
-This is a file containing a collection of books.
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head>
+    <meta charset="UTF-8">
+    <title>AngularJS Modules and Directives</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js">
+    </script>
+</head>
+
+<body>
+    <my-directive></my-directive>
+
+    <script>
+        var app = angular.module('myApp', []);
+
+        app.directive('myDirective', function () {
+            return {
+                restrict: 'E',
+
+
+
+
+                template: '<div>This is a custom directive!</div>'
+            };
+        });
+    </script>
+</body>
+
+</html>

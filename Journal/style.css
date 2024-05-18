@@ -1,0 +1,32 @@
+.normal {
+    letter-spacing: normal;
+}
+
+.tight {
+    letter-spacing: -.2em;
+}
+
+.loose {
+    letter-spacing: .2em;
+}
+
+.upper {
+    text-transform: capitalize;
+}
+
+.lower {
+    text-transform: lowercase;
+}
+
+.shadow {
+    box-shadow: 20px 20px 30px red;
+    height: 200px;
+    width: 200px;
+    padding: 1em;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: #EEEEEE;
+
+
+
+}
